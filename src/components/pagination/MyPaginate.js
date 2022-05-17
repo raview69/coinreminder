@@ -7,6 +7,7 @@ export const MyPaginate = styled(ReactPaginate).attrs({
     display: flex;
     align-items: center;
     flex-direction: row;
+    font-size: 14px;
     justify-content: space-between;
     margin-top: 10px;
     margin-bottom: 10px;

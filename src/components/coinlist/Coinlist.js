@@ -37,20 +37,22 @@ const Coinlist = ({ data, page }) => {
     ))
     return (
         <div className="flex items-center justify-center dark:text-white">
-            <table>
-                <thead>
-                    <tr className="text-left border-y border-y-slate-400 dark:border-y-slate-600">
-                        <th className="px-8 py-2">NO</th>
-                        <th className="px-8 py-2">Name</th>
-                        <th className="pl-8 py-2">Symbol</th>
-                        <th className="px-8 py-2">Price</th>
-                        <th className="px-8 py-2">24h Change</th>
-                        <th className="px-8 py-2">24h Volume</th>
-                        <th className="px-8 py-2">Market Cap</th>
-                    </tr>
-                </thead>
-                {coindata}
-            </table>
+            <div className="overflow-x-scroll">
+                <table>
+                    <thead>
+                        <tr className="text-left border-y border-y-slate-400 dark:border-y-slate-600">
+                            <th className="px-8 py-2">NO</th>
+                            <th className="px-8 py-2">Name</th>
+                            <th className="pl-8 py-2">Symbol</th>
+                            <th className="px-8 py-2">Price</th>
+                            <th className="px-8 py-2">24h Change</th>
+                            <th className="px-8 py-2">24h Volume</th>
+                            <th className="px-8 py-2">Market Cap</th>
+                        </tr>
+                    </thead>
+                    {coindata}
+                </table>
+            </div>
         </div>
     )
 }
