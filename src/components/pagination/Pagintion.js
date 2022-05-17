@@ -6,10 +6,13 @@ const Pagintion = ({ coinsPerPage, totalTodos, paginate }) => {
         pageNumbers.push(i)
     }
     return (
-        <nav className="dark:text-white">
-            <ul className="flex">
+        <nav className="flex items-center justify-center my-3 dark:text-white">
+            <ul className="flex border-l-[1px] border-y-[1px] border-slate-900 dark:border-white">
                 {pageNumbers.map((number) => (
-                    <li key={number} className="border-2 border-white px-1">
+                    <li
+                        key={number}
+                        className="flex items-center justify-center border-r-[1px] border-slate-900 px-1 w-8 dark:border-white"
+                    >
                         <a
                             onClick={() => paginate(number)}
                             href="!#"
