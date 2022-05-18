@@ -1,8 +1,5 @@
 import React from 'react'
 
-// import axios from 'axios'
-// import { data } from '../../data.js'
-
 const Coinlist = ({ data, page }) => {
     const coindata = data.map((item, index) => (
         <tbody key={index}>
@@ -41,7 +38,7 @@ const Coinlist = ({ data, page }) => {
                 <table>
                     <thead>
                         <tr className="text-left border-y border-y-slate-400 dark:border-y-slate-600">
-                            <th className="px-8 py-2">NO</th>
+                            <th className="px-8 py-2">No</th>
                             <th className="px-8 py-2">Name</th>
                             <th className="pl-8 py-2">Symbol</th>
                             <th className="px-8 py-2">Price</th>
