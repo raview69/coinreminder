@@ -7,7 +7,7 @@ const SearchList = ({ filteredCoin, filteredClick }) => {
                 className="flex"
                 onClick={() => {
                     filteredClick.push([coin.name])
-                    filteredClick.push(`$${[coin.current_price]}`)
+                    filteredClick.push([coin.current_price])
                 }}
             >
                 <p>{coin.name}</p>&nbsp;

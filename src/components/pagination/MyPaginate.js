@@ -5,6 +5,7 @@ export const MyPaginate = styled(ReactPaginate).attrs({
     activeClassName: 'active',
 })`
     display: flex;
+
     align-items: center;
     flex-direction: row;
     font-size: 14px;
@@ -15,12 +16,14 @@ export const MyPaginate = styled(ReactPaginate).attrs({
     border-radius: 4px;
 
     li a {
+        width: 50px;
         padding: 0.1rem 0.5rem;
         border-left: gray 0.5px solid;
         border-rigt: gray 0.5px solid;
         cursor: pointer;
     }
     li.previous a {
+        width: 50px;
         cursor: pointer;
         border-left: none;
     }

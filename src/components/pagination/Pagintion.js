@@ -11,7 +11,8 @@ const Pagintion = ({ currentItem, indexPage, handlePageClick, pageCount }) => {
                     breakLabel="..."
                     nextLabel="Next >"
                     onPageChange={handlePageClick}
-                    pageRangeDisplayed={5}
+                    pageRangeDisplayed={4}
+                    marginPagesDisplayed={1}
                     pageCount={pageCount}
                     previousLabel="< Prev"
                     renderOnZeroPageCount={null}

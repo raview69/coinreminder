@@ -34,6 +34,7 @@ const App = () => {
         setItemOffset(newOffset)
         setIndexPage(event.selected)
     }
+
     return (
         <ThemeProvider>
             <Background>

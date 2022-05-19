@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import SearchList from './SearchList'
 import SearchScrool from './SearchScrool'
 
@@ -6,6 +6,10 @@ const Search = ({ details }) => {
     const [searchField, setSearchField] = useState('')
     const [searchShow, setSearchShow] = useState(false)
     const [searchAsuk, setSearchAsuk] = useState([])
+    const [dataSubmit, setDataSubmit] = useState([])
+    const [dataemail, setDataEmail] = useState([])
+    const [dataPriceNotify, setPriceNotify] = useState([])
+    const inputRef = useRef(null)
 
     const filteredCoin = details.filter((item) => {
         return (
@@ -22,19 +26,48 @@ const Search = ({ details }) => {
         }
     }
 
+    const handleEmailChange = (e) => {
+        setDataEmail(e.target.value)
+    }
+
+    const handlePriceChange = (e) => {
+        setPriceNotify(e.target.value)
+    }
+
     const handleClick = () => {
         setSearchField(searchAsuk[0])
         setSearchShow(false)
         console.log(searchAsuk)
-        console.log(searchField)
     }
 
     const handleClickClear = () => {
         setSearchAsuk((searchAsuk.length = 0))
         setSearchAsuk([])
         setSearchField('')
-        console.log('asuuukkk')
         console.log(searchField)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        dataSubmit.push({
+            id: Math.floor(Math.random() * 1000000),
+            coin: searchAsuk[0],
+            price: searchAsuk[1],
+            email: dataemail,
+            price_notify: dataPriceNotify,
+        })
+        console.log(dataSubmit)
+        handleClickClear()
+        setTimeout(() => {
+            setDataSubmit((dataSubmit.length = 0))
+            setDataSubmit([])
+            setDataEmail([])
+
+            console.log(dataSubmit)
+        }, 3000)
+
+        setDataEmail('')
+        setPriceNotify('')
     }
 
     const searchBox = () => {
@@ -53,7 +86,10 @@ const Search = ({ details }) => {
     }
 
     return (
-        <div className="flex p-4 border-2 dark:border-white dark:text-white">
+        <form
+            className="flex p-4 border-2 dark:border-white dark:text-white"
+            onSubmit={handleSubmit}
+        >
             <div className="pr-4 dark:text-white">
                 <div>
                     <h3>Search your coin:</h3>
@@ -75,7 +111,7 @@ const Search = ({ details }) => {
                 </div>
                 {searchBox()}
             </div>
-            <div className="dark:text-white">
+            <div className="pr-4 dark:text-white">
                 <div>
                     <h3>Price now:</h3>
                 </div>
@@ -85,7 +121,45 @@ const Search = ({ details }) => {
                     </div>
                 </div>
             </div>
-        </div>
+            <div className="pr-4 dark:text-white">
+                <div>
+                    <h3>Your email:</h3>
+                </div>
+                <div className="flex dark:text-white">
+                    <input
+                        className="border-2 dark:border-white dark:text-white dark:bg-black"
+                        type="text"
+                        placeholder="Input email"
+                        value={dataemail}
+                        onChange={handleEmailChange}
+                        ref={inputRef}
+                    />
+                </div>
+            </div>
+            <div className="pr-4 dark:text-white">
+                <div>
+                    <h3>Notify price at:</h3>
+                </div>
+                <div className="flex dark:text-white">
+                    <input
+                        className="border-2 w-36 dark:border-white dark:text-white dark:bg-black"
+                        type="number"
+                        placeholder="Input Price"
+                        value={dataPriceNotify}
+                        onChange={handlePriceChange}
+                        ref={inputRef}
+                    />
+                </div>
+            </div>
+            <div className="pr-4  dark:text-white">
+                <div>
+                    <h3>&nbsp;</h3>
+                </div>
+                <button className="px-2 border-2 rounded-sm text-center">
+                    Submit
+                </button>
+            </div>
+        </form>
     )
 }
 
