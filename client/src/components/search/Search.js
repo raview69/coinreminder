@@ -56,7 +56,7 @@ const Search = ({ details }) => {
             email: dataemail,
             price_notify: dataPriceNotify,
         })
-        console.log(dataSubmit)
+        console.log(JSON.stringify(dataSubmit))
         handleClickClear()
         setTimeout(() => {
             setDataSubmit((dataSubmit.length = 0))
