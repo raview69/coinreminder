@@ -3,7 +3,7 @@ const router = express.Router()
 const Model = require('../model/model')
 
 //Post Method
-router.post('/post', (req, res) => {
+router.post('/post', async (req, res) => {
     const data = new Model({
         id: req.body.id,
         coin: req.body.coin,
@@ -13,7 +13,7 @@ router.post('/post', (req, res) => {
     })
 
     try {
-        const dataToSave = data.save()
+        const dataToSave = await data.save()
         res.status(200).json(dataToSave)
     } catch (error) {
         res.status(400).json({ message: error.message })
