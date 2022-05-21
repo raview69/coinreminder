@@ -1,12 +1,12 @@
 import React, { useState, useRef } from 'react'
 import SearchList from './SearchList'
 import SearchScrool from './SearchScrool'
+import axios from 'axios'
 
 const Search = ({ details }) => {
     const [searchField, setSearchField] = useState('')
     const [searchShow, setSearchShow] = useState(false)
     const [searchAsuk, setSearchAsuk] = useState([])
-    const [dataSubmit, setDataSubmit] = useState([])
     const [dataemail, setDataEmail] = useState([])
     const [dataPriceNotify, setPriceNotify] = useState([])
     const inputRef = useRef(null)
@@ -49,21 +49,26 @@ const Search = ({ details }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        dataSubmit.push({
-            id: Math.floor(Math.random() * 1000000),
-            coin: searchAsuk[0],
-            price: searchAsuk[1],
-            email: dataemail,
-            price_notify: dataPriceNotify,
-        })
-        console.log(JSON.stringify(dataSubmit))
+
+        axios.post(
+            'http://localhost:3000/api/post',
+            {
+                id: Math.floor(Math.random() * 1000000),
+                coin: searchAsuk[0],
+                price: searchAsuk[1],
+                email: dataemail,
+                price_notify: dataPriceNotify,
+            },
+            {
+                headers: {
+                    'Content-type': 'application/json; charset=UTF-8',
+                },
+            }
+        )
+
         handleClickClear()
         setTimeout(() => {
-            setDataSubmit((dataSubmit.length = 0))
-            setDataSubmit([])
             setDataEmail([])
-
-            console.log(dataSubmit)
         }, 3000)
 
         setDataEmail('')
