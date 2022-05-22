@@ -51,7 +51,7 @@ const Search = ({ details }) => {
         e.preventDefault()
 
         axios.post(
-            'http://localhost:5000/api/post',
+            '/api/post',
             {
                 id: Math.floor(Math.random() * 1000000),
                 coin: searchAsuk[0],
