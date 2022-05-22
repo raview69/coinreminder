@@ -8,7 +8,6 @@ mongoose.connect(mongoString)
 const database = mongoose.connection
 const routes = require('./routes/routes')
 const app = express()
-const cors = require('cors')
 const nodemailer = require('nodemailer')
 
 const dataStoredlocal = []
@@ -20,7 +19,10 @@ database.on('error', (error) => {
 database.once('connected', () => {
     console.log('Database Connected')
 })
-app.use(cors())
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*')
+    next()
+})
 app.use(express.json())
 app.use('/api', routes)
 
