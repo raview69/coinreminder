@@ -61,11 +61,10 @@ const Search = ({ details }) => {
             },
             {
                 headers: {
-                    'Access-Control-Allow-Origin': '*',
+                    'access-control-allow-origin': '*',
                     'Access-Control-Allow-Headers':
-                        'Access-Control-Allow-Headers, Content-Type, Authorization',
+                        'Content-Type, Authorization',
                     'Access-Control-Allow-Methods': '*',
-                    'Content-Type': 'application/json',
                 },
             }
         )
