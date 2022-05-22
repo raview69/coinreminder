@@ -6,7 +6,7 @@ require('dotenv').config()
 const mongoString = process.env.DATABASE_URL
 mongoose.connect(mongoString)
 const database = mongoose.connection
-const routes = require('./server/routes/routes')
+const routes = require('./routes/routes')
 const app = express()
 const cors = require('cors')
 const nodemailer = require('nodemailer')
