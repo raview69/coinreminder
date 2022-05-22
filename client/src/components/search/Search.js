@@ -51,7 +51,7 @@ const Search = ({ details }) => {
         e.preventDefault()
 
         axios.post(
-            'https://coinalertapp.herokuapp.com/api/post/http://localhost:3000/api/post/',
+            'https://coinalertapp.herokuapp.com/api/post/',
             {
                 id: Math.floor(Math.random() * 1000000),
                 coin: searchAsuk[0],

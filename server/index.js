@@ -8,8 +8,8 @@ mongoose.connect(mongoString)
 const database = mongoose.connection
 const routes = require('./routes/routes')
 const app = express()
+const cors = require('cors')
 const nodemailer = require('nodemailer')
-const PORT = process.env.PORT
 
 const dataStoredlocal = []
 
@@ -20,7 +20,7 @@ database.on('error', (error) => {
 database.once('connected', () => {
     console.log('Database Connected')
 })
-
+app.use(cors())
 app.use(express.json())
 app.use('/api', routes)
 
@@ -95,6 +95,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 }
 
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server Started at ${PORT}`)
 })
