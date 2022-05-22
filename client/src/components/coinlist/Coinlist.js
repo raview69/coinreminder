@@ -6,7 +6,7 @@ const Coinlist = ({ data, page }) => {
             <tr className="text-left border-y border-y-slate-200 dark:border-y-slate-800">
                 <td className="pl-7 pr-1 py-2">{page * 10 + index + 1}</td>
                 <td className="flex px-8 py-2">
-                    <img src={item.image} className="w-5 h-5" />
+                    <img src={item.image} className="w-5 h-5" alt="coin" />
                     &nbsp;
                     {item.name}
                 </td>
