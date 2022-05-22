@@ -1,12 +1,19 @@
 import React from 'react'
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { ThemeContext } from './ThemeContext'
+import Clock from 'react-live-clock'
 
 const Toggle = () => {
     const { theme, setTheme } = React.useContext(ThemeContext)
 
     return (
-        <div className="transition duration-500 ease-in-out rounded-full p-2 ">
+        <div className="flex transition duration-500 ease-in-out rounded-full p-2 ">
+            <Clock
+                format={'MMMM Mo, YYYY, h:mm:ss A'}
+                ticking={true}
+                timezone={'US/Pacific'}
+                className="pr-2 dark:text-white"
+            />
             {theme === 'dark' ? (
                 <FaSun
                     onClick={() =>

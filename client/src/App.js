@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from './theme/ThemeContext'
 import Background from './theme/Background'
-import Toggle from './theme/ThemeToggle'
 import Pagination from './components/pagination/Pagintion'
 import Search from './components/search/Search'
 import axios from 'axios'
-// import { dataCoin } from './data.js'
+import Header from './components/header/Header'
 
 const App = () => {
     const [currentItem, setCurrentItems] = useState([])
@@ -19,7 +18,7 @@ const App = () => {
         const fetchPosts = async () => {
             const endOffset = itemOffset + itemsPerPage
             const res = await axios.get(
-                'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=200&page=1&sparkline=false'
+                'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=250&page=1&sparkline=false'
             )
             const datacoin = res.data
             setCurrentItems(res.data.slice(itemOffset, endOffset))
@@ -38,10 +37,7 @@ const App = () => {
     return (
         <ThemeProvider>
             <Background>
-                <div className="flex items-center justify-between top-0 right-0 p-2">
-                    <div className="dark:text-white font-bold">CoinTracker</div>
-                    <Toggle />
-                </div>
+                <Header />
                 <Pagination
                     currentItem={currentItem}
                     indexPage={indexPage}

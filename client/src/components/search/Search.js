@@ -51,7 +51,7 @@ const Search = ({ details }) => {
         e.preventDefault()
 
         axios.post(
-            'http://localhost:3000/api/post',
+            'http://localhost:5000/api/post',
             {
                 id: Math.floor(Math.random() * 1000000),
                 coin: searchAsuk[0],
@@ -92,7 +92,7 @@ const Search = ({ details }) => {
 
     return (
         <form
-            className="flex p-4 border-2 dark:border-white dark:text-white"
+            className="flex p-4 border-2 dark:border-white dark:text-white lg:mx-16"
             onSubmit={handleSubmit}
         >
             <div className="pr-4 dark:text-white">

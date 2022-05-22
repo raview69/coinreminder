@@ -23,7 +23,7 @@ const dataSchema = new mongoose.Schema({
     },
     price_notify: {
         required: true,
-        type: String,
+        type: Number,
     },
 })
 
