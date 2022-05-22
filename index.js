@@ -63,9 +63,9 @@ const fetchPosts = async () => {
 
                 const mailOptions = {
                     from: 'tomerpacific@gmail.com',
-                    to: 'raviwicaksono69@gmail.com',
-                    subject: 'Nodemailer Project',
-                    text: 'Hi from your nodemailer project',
+                    to: foundCoinUser.email,
+                    subject: 'Your notifiy price has been accomplished',
+                    text: `Hi ${foundCoinUser.email} this email notifed you that Your notifiy price has been accomplished`,
                 }
 
                 transporter.sendMail(mailOptions, function (err, data) {
