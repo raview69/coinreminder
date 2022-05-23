@@ -59,7 +59,7 @@ const Qa = () => {
                     Where to Check Cryptocurrency Prices?
                 </h2>
                 <p className="text-sm sm:text-lg font-extralight">
-                    You can track over 10,000 crypto prices on CoinGecko across
+                    You can track over 10,000 crypto prices on CoinGecko acrosss
                     more than 50 currencies. Popular cryptocurrency pairs
                     include BTC to USD, ETH to USD, and SLP to PHP. You can also
                     track metrics such as 24 hour trading volume, market
