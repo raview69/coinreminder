@@ -1,5 +1,5 @@
 import React from 'react'
-import Lottie from 'react-lottie-min'
+import Lottie from 'react-lottie'
 import crypto from '../img/crypto-bitcoin.json'
 import { AiOutlineArrowDown } from 'react-icons/ai'
 
