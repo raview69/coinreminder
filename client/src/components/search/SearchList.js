@@ -10,13 +10,14 @@ const SearchList = ({ filteredCoin, filteredClick }) => {
                     filteredClick.push([coin.current_price])
                 }}
             >
-                <p>{coin.name}</p>&nbsp;
-                <p>{coin.symbol.toUpperCase()}</p>
+                <img src={coin.image} className="w-5 h-5" alt="coin" />
+                &nbsp;
+                <p>{coin.name}</p>
             </div>
         </li>
     ))
     return (
-        <div>
+        <div className="py-2">
             <ul>{filtered}</ul>
         </div>
     )

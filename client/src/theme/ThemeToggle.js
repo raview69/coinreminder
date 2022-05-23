@@ -9,7 +9,7 @@ const Toggle = () => {
     return (
         <div className="flex transition duration-500 ease-in-out rounded-full p-2 ">
             <Clock
-                format={'MMMM Mo, YYYY, h:mm:ss A'}
+                format={'h:mm:ss A'}
                 ticking={true}
                 timezone={'US/Pacific'}
                 className="pr-2 dark:text-white"

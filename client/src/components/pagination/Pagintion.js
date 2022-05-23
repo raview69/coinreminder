@@ -6,7 +6,7 @@ const Pagintion = ({ currentItem, indexPage, handlePageClick, pageCount }) => {
     return (
         <>
             <Coinlist data={currentItem} page={indexPage} />
-            <div className="flex items-center justify-center dark:text-white">
+            <div className="flex items-center justify-center pb-10 dark:text-white">
                 <MyPaginate
                     breakLabel="..."
                     nextLabel="Next >"

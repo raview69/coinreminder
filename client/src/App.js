@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { ThemeProvider } from './theme/ThemeContext'
 import Background from './theme/Background'
 import Pagination from './components/pagination/Pagintion'
 import Search from './components/search/Search'
 import axios from 'axios'
 import Header from './components/header/Header'
+import Hero from './components/hero/Hero'
+import Qa from './components/qa/Qa'
 
 const App = () => {
     const [currentItem, setCurrentItems] = useState([])
@@ -13,6 +15,8 @@ const App = () => {
     const [itemOffset, setItemOffset] = useState(0)
     const [indexPage, setIndexPage] = useState(0)
     const itemsPerPage = 10
+    const myRef = useRef(null)
+    const executeScroll = () => myRef.current.scrollIntoView()
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -38,13 +42,17 @@ const App = () => {
         <ThemeProvider>
             <Background>
                 <Header />
+                <Hero buttonclick={executeScroll} />
                 <Pagination
                     currentItem={currentItem}
                     indexPage={indexPage}
                     handlePageClick={handlePageClick}
                     pageCount={pageCount}
                 />
-                <Search details={itemSearch} />
+                <div ref={myRef}>
+                    <Search details={itemSearch} />
+                </div>
+                <Qa />
             </Background>
         </ThemeProvider>
     )

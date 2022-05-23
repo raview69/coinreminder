@@ -37,14 +37,12 @@ const Search = ({ details }) => {
     const handleClick = () => {
         setSearchField(searchAsuk[0])
         setSearchShow(false)
-        console.log(searchAsuk)
     }
 
     const handleClickClear = () => {
         setSearchAsuk((searchAsuk.length = 0))
         setSearchAsuk([])
         setSearchField('')
-        console.log(searchField)
     }
 
     const handleSubmit = (e) => {
@@ -94,71 +92,75 @@ const Search = ({ details }) => {
 
     return (
         <form
-            className="flex p-4 border-2 dark:border-white dark:text-white lg:mx-16"
+            className="px-4 sm:flex sm::items-center sm:justify-center pb-12 text-lg dark:text-white lg:mx-16"
             onSubmit={handleSubmit}
         >
-            <div className="pr-4 dark:text-white">
-                <div>
-                    <h3>Search your coin:</h3>
+            <div className="flex items-center justify-center">
+                <div className="pr-8 sm:pr-2 lg:pr-8 dark:text-white">
+                    <div>
+                        <h3>Search your coin:</h3>
+                    </div>
+                    <div className="flex dark:text-white">
+                        <input
+                            className="border-y-2 border-l-2 w-36 dark:border-white dark:text-white dark:bg-black"
+                            type="text"
+                            placeholder="Search coin"
+                            value={searchField}
+                            onChange={handleChange}
+                        />
+                        <button
+                            className="border-y-2 border-r-2 w-4 dark:border-white dark:text-white"
+                            onClick={handleClickClear}
+                        >
+                            X
+                        </button>
+                    </div>
+                    {searchBox()}
                 </div>
-                <div className="flex dark:text-white">
-                    <input
-                        className="border-y-2 border-l-2 w-36 dark:border-white dark:text-white dark:bg-black"
-                        type="text"
-                        placeholder="Search coin"
-                        value={searchField}
-                        onChange={handleChange}
-                    />
-                    <button
-                        className="border-y-2 border-r-2 w-4 dark:border-white dark:text-white"
-                        onClick={handleClickClear}
-                    >
-                        X
-                    </button>
-                </div>
-                {searchBox()}
-            </div>
-            <div className="pr-4 dark:text-white">
-                <div>
-                    <h3>Price now:</h3>
-                </div>
-                <div className="dark:text-white">
-                    <div className="border-2 w-40 dark:border-white">
-                        {searchAsuk[1]}&nbsp;
+                <div className="pr-8 sm:pr-2 lg:pr-8 dark:text-white">
+                    <div>
+                        <h3>Price now:</h3>
+                    </div>
+                    <div className="dark:text-white">
+                        <div className="border-2 w-40 dark:border-white">
+                            {searchAsuk[1]}&nbsp;
+                        </div>
                     </div>
                 </div>
             </div>
-            <div className="pr-4 dark:text-white">
-                <div>
-                    <h3>Your email:</h3>
+            <div className="flex items-center justify-center">
+                <div className="pr-8 sm:pr-2 lg:pr-8 dark:text-white">
+                    <div>
+                        <h3>Your email:</h3>
+                    </div>
+                    <div className="flex dark:text-white">
+                        <input
+                            className="w-40 border-2 dark:border-white dark:text-white dark:bg-black"
+                            type="text"
+                            placeholder="Input email"
+                            value={dataemail}
+                            onChange={handleEmailChange}
+                            ref={inputRef}
+                        />
+                    </div>
                 </div>
-                <div className="flex dark:text-white">
-                    <input
-                        className="border-2 dark:border-white dark:text-white dark:bg-black"
-                        type="text"
-                        placeholder="Input email"
-                        value={dataemail}
-                        onChange={handleEmailChange}
-                        ref={inputRef}
-                    />
+                <div className="pr-8 sm:pr-2 lg:pr-8 dark:text-white">
+                    <div>
+                        <h3>Notify price at:</h3>
+                    </div>
+                    <div className="flex dark:text-white">
+                        <input
+                            className="w-40 border-2 dark:border-white dark:text-white dark:bg-black"
+                            type="number"
+                            placeholder="Input Price"
+                            value={dataPriceNotify}
+                            onChange={handlePriceChange}
+                            ref={inputRef}
+                        />
+                    </div>
                 </div>
             </div>
-            <div className="pr-4 dark:text-white">
-                <div>
-                    <h3>Notify price at:</h3>
-                </div>
-                <div className="flex dark:text-white">
-                    <input
-                        className="border-2 w-36 dark:border-white dark:text-white dark:bg-black"
-                        type="number"
-                        placeholder="Input Price"
-                        value={dataPriceNotify}
-                        onChange={handlePriceChange}
-                        ref={inputRef}
-                    />
-                </div>
-            </div>
-            <div className="pr-4  dark:text-white">
+            <div className="pr-8 sm:pr-2 lg:pr-8  dark:text-white">
                 <div>
                     <h3>&nbsp;</h3>
                 </div>
