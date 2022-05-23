@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
 const axios = require('axios').default
+var cors = require('cors')
 require('dotenv').config()
 const mongoString = process.env.DATABASE_URL
 mongoose.connect(mongoString)
@@ -20,6 +21,7 @@ database.once('connected', () => {
     console.log('Database Connected')
 })
 
+app.use(cors())
 app.use(express.json())
 app.use('/api', routes)
 
