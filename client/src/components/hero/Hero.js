@@ -1,4 +1,6 @@
 import React from 'react'
+import Lottie from 'react-lottie-player'
+import crypto from '../img/crypto-bitcoin.json'
 import { AiOutlineArrowDown } from 'react-icons/ai'
 
 const Hero = ({ buttonclick }) => {
@@ -26,7 +28,9 @@ const Hero = ({ buttonclick }) => {
                     </button>
                 </div>
             </div>
-            <div className="hidden sm:flex sm:w-80"></div>
+            <div className="hidden sm:flex sm:w-80">
+                <Lottie loop animationData={crypto} play />
+            </div>
         </div>
     )
 }
