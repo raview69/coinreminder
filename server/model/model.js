@@ -1,10 +1,6 @@
 const mongoose = require('mongoose')
 
 const dataSchema = new mongoose.Schema({
-    id: {
-        required: true,
-        type: String,
-    },
     coin: [
         {
             required: true,
