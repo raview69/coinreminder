@@ -2,14 +2,6 @@ import React from 'react'
 import { AiOutlineArrowDown } from 'react-icons/ai'
 
 const Hero = ({ buttonclick }) => {
-    const defaultOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: crypto,
-        rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice',
-        },
-    }
     return (
         <div className="flex items-center justify-center pb-8 sm:pb-12 dark:text-white lg:mx-16">
             <div className="flex items-center p-4 justify-left lg:w-8/12  lg:-mr-12">
