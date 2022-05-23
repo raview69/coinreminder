@@ -60,5 +60,6 @@
         "eslint-plugin-react-hooks": "^4.5.0",
         "postcss": "^8.4.13",
         "tailwindcss": "^3.0.24"
-    }
+    },
+    "proxy": "https://coinalertapp.herokuapp.com"
 }
