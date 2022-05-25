@@ -92,8 +92,6 @@ const fetchPosts = async () => {
 
 const checkDataUser = () => fetchPosts()
 
-setInterval(checkDataUser, 5000)
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')))
 
@@ -102,6 +100,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 } else {
     app.get('/', (req, res) => {
+        setInterval(checkDataUser, 5000)
         res.send('Api runnning')
     })
 }
