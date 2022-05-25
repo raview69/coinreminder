@@ -29,7 +29,7 @@ const Hero = ({ buttonclick }) => {
                 </div>
             </div>
             <div className="hidden sm:flex sm:w-80">
-                <Lottie loop animationData={crypto} play />
+                <Lottie loop animationData={crypto} playcd />
             </div>
         </div>
     )

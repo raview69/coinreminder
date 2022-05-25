@@ -25,7 +25,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/api', routes)
 
-const fetchPosts = async () => {
+export const fetchPosts = async () => {
     const getDataUser = await axios.get('http://localhost:5000/api/getAll')
     const dataCoinUser = getDataUser.data
     dataCoinUser.filter((e) => {
@@ -90,8 +90,6 @@ const fetchPosts = async () => {
     console.log(dataStoredlocal)
 }
 
-const checkDataUser = () => fetchPosts()
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')))
 
@@ -100,7 +98,6 @@ if (process.env.NODE_ENV === 'production') {
     })
 } else {
     app.get('/', (req, res) => {
-        setInterval(checkDataUser, 5000)
         res.send('Api runnning')
     })
 }
