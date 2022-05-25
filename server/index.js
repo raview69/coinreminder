@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
-const axios = require('axios')
+const axios = require('axios').default
 var cors = require('cors')
 require('dotenv').config()
 const mongoString = process.env.DATABASE_URL
