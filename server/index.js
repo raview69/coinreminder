@@ -76,16 +76,15 @@ const fetchPosts = async () => {
                         console.log('Email sent successfully')
                     }
                 })
-
-                const deletDataUser = () => {
-                    axios.delete(`/api/delete/${foundCoinUser._id}`)
-                }
-                deletDataUser()
             }
         } catch (error) {
             console.log('error, next')
         }
     }
+}
+
+const sendEmailNotification = () => {
+    setTimeout(() => fetchPosts(), 1000)
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -96,8 +95,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 } else {
     app.get('/', (req, res) => {
-        fetchPosts()
-        res.send('Api runnning')
+        res.send(sendEmailNotification())
     })
 }
 
