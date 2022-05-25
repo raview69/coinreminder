@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const path = require('path')
-const axios = require('axios').default
+const axios = require('axios')
 var cors = require('cors')
 require('dotenv').config()
 const mongoString = process.env.DATABASE_URL
@@ -76,16 +76,23 @@ const fetchPosts = async () => {
                         console.log('Email sent successfully')
                     }
                 })
+
+                const deleteDataUser = await axios.delete(
+                    `http://localhost:5000/api/delete/${foundCoinUser._id}`
+                )
+                deleteDataUser()
             }
         } catch (error) {
             console.log('error, next')
         }
     }
+    dataStoredlocal.length = 0
+    console.log(dataStoredlocal)
 }
 
-const sendEmailNotification = () => {
-    setTimeout(() => fetchPosts(), 1000)
-}
+const checkDataUser = () => fetchPosts()
+
+setInterval(checkDataUser, 5000)
 
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, '../client/build')))
@@ -95,7 +102,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 } else {
     app.get('/', (req, res) => {
-        res.send(sendEmailNotification())
+        res.send('Api runnning')
     })
 }
 
