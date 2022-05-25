@@ -73,7 +73,6 @@ const Search = ({ details }) => {
 
         setDataEmail('')
         setPriceNotify('')
-        axios.get('https://coinalertapp.herokuapp.com/api/data')
     }
 
     const searchBox = () => {
