@@ -1,9 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const Model = require('../model/model')
-import { fetchPosts } from '../index.js'
-
-const checkDataUser = () => fetchPosts()
 
 //Post Method
 router.post('/post', async (req, res) => {
@@ -35,14 +32,6 @@ router.get('/getAll', async (req, res) => {
 //Get by ID Method
 router.get('/getOne/:id', (req, res) => {
     res.send('Get by ID API')
-})
-
-//Get Data User
-router.get('/data', (req, res) => {
-    try {
-        setInterval(checkDataUser, 5000)
-        res.send('Get by ID API')
-    } catch (error) {}
 })
 
 //Update by ID Method
