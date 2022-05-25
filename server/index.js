@@ -88,7 +88,6 @@ setTimeout(() => {
             }
         }
     }
-    fetchPosts()
 }, 1000)
 
 if (process.env.NODE_ENV === 'production') {
@@ -99,6 +98,7 @@ if (process.env.NODE_ENV === 'production') {
     })
 } else {
     app.get('/', (req, res) => {
+        fetchPosts()
         res.send('Api runnning')
     })
 }
