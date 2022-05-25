@@ -78,7 +78,7 @@ const Search = ({ details }) => {
     const searchBox = () => {
         if (searchShow) {
             return (
-                <div onClick={handleClick}>
+                <div className="absolute dark:bg-black" onClick={handleClick}>
                     <SearchScrool>
                         <SearchList
                             filteredCoin={filteredCoin}
@@ -92,7 +92,7 @@ const Search = ({ details }) => {
 
     return (
         <form
-            className="px-4 sm:flex sm::items-center sm:justify-center pb-12 text-lg dark:text-white lg:mx-16"
+            className="px-4 sm:flex sm::items-center sm:justify-center pb-28 text-lg dark:text-white lg:mx-16"
             onSubmit={handleSubmit}
         >
             <div className="flex items-center justify-center">
